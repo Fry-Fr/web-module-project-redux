@@ -11,6 +11,8 @@ import MovieHeader from './components/MovieHeader';
 import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
 
+import { deleteMovie } from './actions/movieActions';
+
 const App = props => {
   const displayFavorites = true;
 
@@ -31,7 +33,7 @@ const App = props => {
             </Route>
 
             <Route path="/movies/:id">
-              <Movie movies={props.movies.movies} />
+              <Movie movies={props.movies.movies} del={props.deleteMovie} />
             </Route>
 
             <Route path="/movies">
@@ -54,4 +56,4 @@ const mapToProps = (state)=> {
   }
 }
 
-export default connect(mapToProps,{})(App);
+export default connect(mapToProps,{deleteMovie})(App);
