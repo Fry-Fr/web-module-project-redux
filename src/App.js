@@ -21,7 +21,7 @@ const App = props => {
       </nav>
 
       <div className="container">
-        <MovieHeader/>
+        <MovieHeader appTitle={props.movies.appTitle} />
         <div className="row ">
           {displayFavorites && <FavoriteMovieList/>}
         
@@ -31,11 +31,11 @@ const App = props => {
             </Route>
 
             <Route path="/movies/:id">
-              <Movie />
+              <Movie movies={props.movies.movies} />
             </Route>
 
             <Route path="/movies">
-              <MovieList/>
+              <MovieList movies={props.movies.movies} />
             </Route>
 
             <Route path="/">
@@ -48,4 +48,10 @@ const App = props => {
   );
 };
 
-export default App;
+const mapToProps = (state)=> {
+  return {
+    movies: state.movies
+  }
+}
+
+export default connect(mapToProps,{})(App);

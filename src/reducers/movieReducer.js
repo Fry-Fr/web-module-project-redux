@@ -7,6 +7,9 @@ const initialState = {
 }
 
 const reducer = (state, action) => {
+    if (state === undefined){
+        return initialState;
+    }
     switch(action.type) {
         case DELETE_MOVIE:
             return {
