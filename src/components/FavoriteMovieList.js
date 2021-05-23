@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const FavoriteMovieList = (props) => {
-    const favorites = [];
+    const favorites = props.favs;
     
     return (<div className="col-xs savedContainer">
         <h5>Favorite Movies</h5>

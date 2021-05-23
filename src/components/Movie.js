@@ -37,7 +37,7 @@ const Movie = (props) => {
                         </section>
                         
                         <section>
-                            <span className="m-2 btn btn-dark">Favorite</span>
+                            <span className="m-2 btn btn-dark" onClick={()=> {props.addFavs(movie);push('/movies/')}} >Favorite</span>
                             <span className="delete"><input onClick={()=> {props.del(movie.id);push('/movies')}} type="button" className="m-2 btn btn-danger" value="Delete"/></span>
                         </section>
                     </div>
