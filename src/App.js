@@ -11,8 +11,6 @@ import MovieHeader from './components/MovieHeader';
 import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
 
-import { deleteMovie, addMovie, toggleFavs, addFav } from './actions/movieActions';
-
 const App = props => {
   const displayFavorites = props.favorites.displayFavorites;
 
@@ -23,17 +21,17 @@ const App = props => {
       </nav>
 
       <div className="container">
-        <MovieHeader appTitle={props.movies.appTitle} displayFavs={props.favorites.displayFavorites} toggleFavs={props.toggleFavs} />
+        <MovieHeader/>
         <div className="row ">
-          {displayFavorites && <FavoriteMovieList favs={props.favorites.favorites} />}
+          {displayFavorites && <FavoriteMovieList movies={props.favorites.favorites} />}
         
           <Switch>
             <Route exact path="/movies/add">
-              <AddMovieForm addMovie={props.addMovie} />
+              <AddMovieForm/>
             </Route>
 
             <Route path="/movies/:id">
-              <Movie movies={props.movies.movies} del={props.deleteMovie} addFavs={props.addFav} />
+              <Movie/>
             </Route>
 
             <Route path="/movies">
@@ -57,4 +55,4 @@ const mapToProps = (state)=> {
   }
 }
 
-export default connect(mapToProps,{deleteMovie, addMovie, toggleFavs, addFav})(App);
+export default connect(mapToProps,{})(App);

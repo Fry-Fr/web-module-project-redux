@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-// import { addMovie } from './../actions/movieActions';
-// import { connect } from 'react-redux';
+import { addMovie } from './../actions/movieActions';
+import { connect } from 'react-redux';
 
 import { Link, useHistory } from 'react-router-dom';
 
@@ -71,4 +71,8 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+const mapToProps = (state)=> {
+    return{}
+}
+
+export default connect(mapToProps,{addMovie})(AddMovieForm);
