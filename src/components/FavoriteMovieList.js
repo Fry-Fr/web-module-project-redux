@@ -6,7 +6,7 @@ import { removeFav } from '../actions/movieActions';
 
 
 const FavoriteMovieList = (props) => {
-    const favorites = props.movies;
+    const favorites = props.favorites;
     
     return (<div className="col-xs savedContainer">
         <h5>Favorite Movies</h5>
@@ -24,6 +24,8 @@ const FavoriteMovieList = (props) => {
 }
 
 const mapToProps = (state)=>{
-    return {}
+    return {
+        favorites: state.favorites.favorites
+    }
 }
 export default connect(mapToProps,{removeFav})(FavoriteMovieList);

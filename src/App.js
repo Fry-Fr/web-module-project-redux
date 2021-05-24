@@ -12,7 +12,7 @@ import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
 
 const App = props => {
-  const displayFavorites = props.favorites.displayFavorites;
+  const displayFavorites = props.favorites;
 
   return (
     <div>
@@ -23,7 +23,7 @@ const App = props => {
       <div className="container">
         <MovieHeader/>
         <div className="row ">
-          {displayFavorites && <FavoriteMovieList movies={props.favorites.favorites} />}
+          {displayFavorites && <FavoriteMovieList />}
         
           <Switch>
             <Route exact path="/movies/add">
@@ -35,7 +35,7 @@ const App = props => {
             </Route>
 
             <Route path="/movies">
-              <MovieList movies={props.movies.movies} />
+              <MovieList />
             </Route>
 
             <Route path="/">
@@ -50,8 +50,7 @@ const App = props => {
 
 const mapToProps = (state)=> {
   return {
-    movies: state.movies,
-    favorites: state.favorites
+    favorites: state.favorites.displayFavorites
   }
 }
 

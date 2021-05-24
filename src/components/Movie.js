@@ -7,7 +7,7 @@ const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
-    const movies = props.movies.movies;
+    const movies = props.movies;
     const movie = movies.find(movie=>movie.id===Number(id));
     
     return(<div className="modal-page col">
@@ -51,8 +51,7 @@ const Movie = (props) => {
 
 const mapToProps = (state)=> {
     return{
-        movies: state.movies,
-        favorites: state.favorites
+        movies: state.movies.movies
     }
 }
 
